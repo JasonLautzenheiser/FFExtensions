@@ -103,5 +103,24 @@ namespace Extension.Tests
     {
       Assert.That(new int[2] {23,12}.Average(), Is.EqualTo(17.5));
     }
+
+    [Test]
+    public void AverageEmptyDoubleArrayThrowsException()
+    {
+      double[] items = new double[0];
+      var testDelegate = new TestDelegate(() => items.Average());
+      Assert.That(testDelegate, Throws.TypeOf<DivideByZeroException>());
+    }
+
+    [Test]
+    public void AverageOneItemDoubleArrayReturnsItem()
+    {
+      Assert.That(new double[1] {23.5}.Average(), Is.EqualTo(23.5));
+    }
+    [Test]
+    public void AverageTwoItemDoubleArrayReturnsAverage()
+    {
+      Assert.That(new double[2] {23.0,12.0}.Average(), Is.EqualTo(17.5));
+    }
   }
 }

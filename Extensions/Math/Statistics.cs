@@ -27,5 +27,11 @@ namespace Extensions.Math
       if (items.Length==0) throw new System.DivideByZeroException();
       return items.Sum()/(double)items.Length;
     }
+
+    public static double Average(this double[] items)
+    {
+      if (items.Length==0) throw new System.DivideByZeroException();
+      return items.Sum()/items.Length;
+    }
   }
 }
